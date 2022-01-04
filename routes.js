@@ -12,7 +12,19 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.get('/', function (req, res) {
+    res.sendFile(__dirname + "/views/index.html");
+});
+
+router.get('/register', function (req, res) {
     res.sendFile(__dirname + "/views/register.html");
+});
+
+router.get('/css/*', function(req, res)  {
+    res.sendFile(__dirname+"/views/"+req.originalUrl);
+});
+
+router.get('/js/*', function(req, res)  {
+    res.sendFile(__dirname+"/views/"+req.originalUrl);
 });
   
 router.post('/sign_up', function(req,res){
