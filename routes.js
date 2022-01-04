@@ -28,25 +28,30 @@ router.get('/js/*', function(req, res)  {
 });
   
 router.post('/sign_up', function(req,res){
-    var name = req.body.name;
-    var email =req.body.email;
-    var pass = req.body.password;
-    var phone =req.body.phone;
+    var data = req.body;
+    db.register(data.name, data.email, data.password, data.phone,
+        function (err, event) {
+            res.redirect('back');
+        })
+//     var name = req.body.name;
+//     var email =req.body.email;
+//     var pass = req.body.password;
+//     var phone =req.body.phone;
   
-    var data = {
-        "name": name,
-        "email":email,
-        "password":pass,
-        "phone":phone
-    }
-db.collection('users').insertOne(data,function(err, collection){
-        if (err) throw err;
-        console.log("Record inserted Successfully");
+//     var data = {
+//         "name": name,
+//         "email":email,
+//         "password":pass,
+//         "phone":phone
+//     }
+// db.collection('users').insertOne(data,function(err, collection){
+//         if (err) throw err;
+//         console.log("Record inserted Successfully");
               
-    });
+//     });
           
-    return res.redirect('signup_success.html');
-})
+//     return res.redirect('signup_success.html');
+});
   
 
 

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
-// var eventSchema = {};
-// var eventModel;
+var userSchema = {};
+var userModel;
 
 mongoose.set('debug', true);
 
@@ -11,25 +11,29 @@ var database = {
                 if(err==null) {
                     console.log("Connected to Mongo DB");
                     //initialize values
-                    // eventSchema = schema({
-                    //     name: String,
-                    //     description: String,
-                    //     start: {
-                    //         date: String,
-                    //         time: String
-                    //     },
-                    //     end: {
-                    //         date: String,
-                    //         time: String
-                    //     }
-                    // });
-                    // var connection = mongoose.connection;
-                    // eventModel = connection.model('event', eventSchema);
+                    userSchema = schema({
+                        name: String,
+                        email: String,
+                        password: String,
+                        phone: String
+                    });
+                    var connection = mongoose.connection;
+                    userModel = connection.model('user', userSchema);
                 } else {
                     console.log("Error connecting to Mongo DB");
                     console.log(err);
                 }
             })
+        },
+
+        register: function(n, e, pw, p, callback) {
+            var newUser = new userModel({
+                name: n,
+                email: e,
+                password: pw,
+                phone: p
+            });
+            newUser.save(callback);
         },
 
         
