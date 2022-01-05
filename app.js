@@ -8,6 +8,8 @@ const express               =  require('express'),
       User                  =  require("./models/user");
 //Connecting database
 mongoose.connect("mongodb://127.0.0.1:27017/transportsageDB");
+var db = require('./models/feedback.js');
+db.connect();
 app.use(require("express-session")({
     secret:"Any normal Word",       //decode or encode session
     resave: false,          
@@ -41,6 +43,16 @@ app.get("/userprofile",isLoggedIn ,(req,res) =>{
 app.get("/home",(req,res)=>{
     res.render("home");
 });
+app.get("/feedback",(req,res)=>{
+    res.render("contact");
+});
+app.post("/feedback",(req,res)=>{
+    var data = req.body;
+        db.addFeedback(data.username, data.phone, data.email, data.type, data.feedback,
+            function (err, feedback) {
+                res.redirect('back');
+            })
+})
 app.post("/login",passport.authenticate("local",{
     successRedirect:"/home",
     failureRedirect:"/login"
