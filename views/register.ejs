@@ -1,20 +1,46 @@
+<html>
+<head>
+    <style>
+        body {
+  background-image: url('assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login{
+    background: rgba(151, 151, 151, 0.4);;
+    /* border: 1px solid black; */
+    height: 24em;
+    width: 26em;
+    padding: 2em;
+    margin-left: 31em;
+    margin-top: 8em;
+    text-align: center;
+}
+
+
+    </style>
+
+</head>
+<body>
+<div class="login">
 <h1>
-    SignUp Page
+    Registration Page
 </h1>
 <form action="/register" method="POST">
     <label for="username">UserName</label>
-    <input type="text" id="username" name="username">
+    <input type="text" id="username" name="username"><br><br>
     <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-    <label for="phone">Mobile No:-</label>
-    <input type="text" name="phone" id="phone">
-    <label for="email">Email:-</label>
-    <input type="text" name="email" id="email">
+    <input type="password" id="password" name="password"><br><br>
+    <label for="phone">Mobile No:</label>
+    <input type="text" name="phone" id="phone"><br><br>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email"><br><br>
     <button>Submit</button>
 </form>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/login">login</a></li>
-</ul>
+Have an account? <a href="/"> Log In</a><br><br><br>
 
-<footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
+
+<footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer></div>
+</body>
+</html>
