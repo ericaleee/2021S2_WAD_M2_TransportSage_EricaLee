@@ -26,17 +26,23 @@ app.use(passport.session());
 //      R O U T E S
 //=======================
 app.get("/", (req,res) =>{
-    res.render("home");
+    res.render("login");
 })
+app.get('/js/*', function(req, res)  {
+    res.sendFile(__dirname+"/views/"+req.originalUrl);
+});
+app.get('/assets/*', function(req, res)  {
+    res.sendFile(__dirname+"/views/"+req.originalUrl);
+});
 app.get("/userprofile",isLoggedIn ,(req,res) =>{
     res.render("userprofile");
 })
 //Auth Routes
-app.get("/login",(req,res)=>{
-    res.render("login");
+app.get("/home",(req,res)=>{
+    res.render("home");
 });
 app.post("/login",passport.authenticate("local",{
-    successRedirect:"/userprofile",
+    successRedirect:"/home",
     failureRedirect:"/login"
 }),function (req, res){
 });
