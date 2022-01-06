@@ -36,9 +36,34 @@ app.get('/js/*', function(req, res)  {
 app.get('/assets/*', function(req, res)  {
     res.sendFile(__dirname+"/views/"+req.originalUrl);
 });
-app.get("/userprofile",isLoggedIn ,(req,res) =>{
-    res.render("userprofile");
+
+app.get("/userprofile", isLoggedIn, function(req,res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            req.flash("error","Something went wrong.");
+            res.redirect("/");
+        }
+        res.render("userprofile",{user:foundUser});
+    })
 })
+// app.get("/userprofile", function (req, res) {
+//     User.findOne({
+//       id: req.session.id
+//     }, function (err, foundUser) {
+//       if (err) {
+//         req.flash("error", "Something went wrong.");
+//         return res.redirect("/");
+//       }
+//       if (foundUser.length == 0) //Means no data found
+//       {
+//         //Write code for when no such user is there
+//       }
+//       res.render('userprofile', {
+//         user: foundUser,
+//       });
+//     })
+//   });
+
 //Auth Routes
 app.get("/home",(req,res)=>{
     res.render("home");
@@ -55,8 +80,10 @@ app.post("/feedback",(req,res)=>{
 })
 app.post("/login",passport.authenticate("local",{
     successRedirect:"/home",
-    failureRedirect:"/login"
+    failureRedirect:"/",
+
 }),function (req, res){
+    //  req.session.id = id;
 });
 app.get("/register",(req,res)=>{
     res.render("register");
@@ -69,7 +96,7 @@ app.post("/register",(req,res)=>{
             res.render("register");
         }
     passport.authenticate("local")(req,res,function(){
-        res.redirect("/login");
+        res.redirect("/");
     })    
     })
 })
@@ -81,7 +108,7 @@ function isLoggedIn(req,res,next) {
     if(req.isAuthenticated()){
         return next();
     }
-    res.redirect("/login");
+    res.redirect("/");
 }
 //Listen On Server
 app.listen(process.env.PORT ||3000,function (err) {
