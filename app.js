@@ -9,6 +9,8 @@ const express               =  require('express'),
 //Connecting database
 mongoose.connect("mongodb://127.0.0.1:27017/transportsageDB");
 var db = require('./models/feedback.js');
+var db1 = require('./models/topup.js');
+db1.connect();
 db.connect();
 app.use(require("express-session")({
     secret:"Any normal Word",       //decode or encode session
@@ -45,6 +47,22 @@ app.get("/userprofile", isLoggedIn, function(req,res){
         }
         res.render("userprofile",{user:foundUser});
     })
+})
+app.get("/topup", isLoggedIn, function(req,res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            req.flash("error","Something went wrong.");
+            res.redirect("/");
+        }
+        res.render("topup",{user:foundUser});
+    })
+})
+app.post("/topup",(req,res)=>{
+    var data = req.body;
+        db1.addTopup(data.bankacc, data.ezlinkID, data.topupAmount,
+            function (err, feedback) {
+                res.redirect('back');
+            })
 })
 // app.get("/userprofile", function (req, res) {
 //     User.findOne({
