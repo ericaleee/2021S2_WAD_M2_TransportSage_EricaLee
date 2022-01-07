@@ -39,7 +39,7 @@ a:active {
         font-family: MV Boli;
     }
     body {
-  background-image: url('assets/images/background2.jpg');
+  background-image: url('../assets/images/background2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -77,10 +77,10 @@ footer {
 
 <body>
 <nav>
-    <a href="/home"><img src="./assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
+    <a href="/home"><img src="../assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
     
     <p><ul>
-    <li><a href="/userprofile">View User Profile</a></li>
+    <li><a href="/home">Home</a></li>
     <!-- <li><a href="">Services</a></li> -->
     <li><a href="/topup">Topup</a></li>
     <li><a href="/feedback">Contact Us</a></li>
@@ -88,28 +88,21 @@ footer {
   </ul></p>
 </nav>
 <br>
-<div class="feedback">
 <h1>
-    Feedback/Enquiry Form
+    Top Up
 </h1>
-<form action="/feedback" method="POST">
-    <label for="username">UserName</label>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="phone">Mobile No:</label>
-    <input type="text" name="phone" id="phone"><br><br>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email"><br><br>
-    <label for="type">Type:</label>
-    <select name="type" id="type">
-      <option value="feedback">Feedback</option>
-      <option value="enquiry">Enquiry</option>
-    </select><br><br>
-    <label for="feedback">Feedback/Enquiry:</label><br><br>
-    <textarea id="feedback" name="feedback" rows="4" cols="50">
-        </textarea><br><br>
+  <form action="/topup" method="POST">
+    <label for="bankacc">Bank Account</label>
+    <input type="text" id="bankacc" name="bankacc"><br><br>
+    <label for="ezlinkID">Ezlink ID</label>
+    <input type="text" id="ezlinkID" name="ezlinkID"><br><br>
+    <label for="topupAmount">Topup Amount:</label>
+    <input type="text" name="topupAmount" id="topupAmount"><br><br>
     <button>Submit</button>
 </form>
-</div>
+
+<script src='/views/js/jquery.min.js'></script>
+    <script src='/views/js/topup.js'></script>
       
 <footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
 </body>
