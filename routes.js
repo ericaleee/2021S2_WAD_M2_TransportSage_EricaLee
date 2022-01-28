@@ -66,6 +66,9 @@ router.get('/googlemap', function (req, res) {
 router.get('/mrtService', function (req, res) {
     res.sendFile(__dirname + "/views/mrtService.html");
 });
+router.get('/weather', function (req, res) {
+    res.sendFile(__dirname + "/views/weatherforecast.html");
+});
 
 router.get('/edit', function (req, res) {
     res.sendFile(__dirname + "/views/edituserprofile.html");
