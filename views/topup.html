@@ -62,7 +62,7 @@ footer {
    padding: 3px;
 }
 
-.feedback{
+.topup{
     background: rgba(151, 151, 151, 0.4);;
     /* border: 1px solid black; */
     border-radius: 25px;
@@ -92,6 +92,7 @@ footer {
 <h1>
     Top Up
 </h1>
+<section class="topup">
   <form action="/topup" method="POST">
     <label for="bankacc">Bank Account</label>
     <input type="text" id="bankacc" name="bankacc"><br><br>
@@ -101,7 +102,7 @@ footer {
     <input type="text" name="topupAmount" id="topupAmount"><br><br>
     <button>Submit</button>
 </form>
-
+</section>
 <script src='/views/js/jquery.min.js'></script>
     <script src='/views/js/topup.js'></script>
       
