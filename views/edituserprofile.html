@@ -62,7 +62,7 @@ footer {
    padding: 3px;
 }
 
-.feedback{
+.services article{
     background: rgba(151, 151, 151, 0.4);;
     /* border: 1px solid black; */
     border-radius: 25px;
@@ -80,33 +80,39 @@ footer {
     <a href="/home"><img src="../assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
     
     <p><ul>
-      <li><a href="/profile">View Profile</a></li>
-      <li><a href="/topup">Topup</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/feedback">Contact Us</a></li>
-      <li><a href="/mrtService">mrtService</a></li>
-      <li><a href="#" class="logoutLink">Logout</a></li>
+    <li><a href="/home">Home</a></li>
+    <!-- <li><a href="">Services</a></li> -->
+    <li><a href="/topup">Topup</a></li>
+    <li><a href="/feedback">Contact Us</a></li>
+    <li><a href="mrtService">mrtService</a></li>
+    <li><a href="#" class="logoutLink">Logout</a></li>
   </ul></p>
 </nav>
 <br>
-<h1>
-    Top Up
-</h1>
-  <form action="/topup" method="POST">
-    <label for="bankacc">Bank Account</label>
-    <input type="text" id="bankacc" name="bankacc"><br><br>
-    <label for="ezlinkID">Ezlink ID</label>
-    <input type="text" id="ezlinkID" name="ezlinkID"><br><br>
-    <label for="topupAmount">Topup Amount:</label>
-    <input type="text" name="topupAmount" id="topupAmount"><br><br>
-    <button>Submit</button>
-</form>
-
-<script src='/views/js/jquery.min.js'></script>
-    <script src='/views/js/topup.js'></script>
+<h1>Edit Address</h1>
+<br>
+<section>
+    <form onsubmit="return editAddress();">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description">
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+            <br>
+            <label for="postal">Postal Code:</label>
+            <input type="text" id="postal" name="postal">
+            <br>
+            <button type="submit">Save Address</button>
+    </form>
+    <button class="deleteAddBtn">Delete Address</button>
+</section>
       
 <footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
 <script src='/js/jquery.min.js'></script>
+<script src='/js/edituserprofile.js'></script>
 <script src="/js/auth.js"></script>
 </body>
 </html>

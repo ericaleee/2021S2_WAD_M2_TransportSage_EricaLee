@@ -25,9 +25,6 @@ $(function() {
             }
         )
 
-    $(".addAddress").click(function () {
-        $(".addNewAddress").show();
-    })
 })
 
 

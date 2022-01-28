@@ -115,8 +115,23 @@ var database = {
         });
         newAddress.save(callback);
     },
-    getAddress: function (id,callback) {
-        addressModel.find({user: id}).populate('user', 'name').exec(callback);
+    getAddress: function ( callback) {
+        addressModel.find({}).populate('user', 'username').exec(callback);
+    },
+    getAddressbyId: function (id, callback) {
+        addressModel.findById(id).populate('user', 'username').exec(callback);
+    },
+    updateAddress: function (id, n, d, a, p, callback) {
+        var updatedAddress = {
+            name: n,
+            description: d,
+            address: a,
+            postal: p
+        };
+        addressModel.findByIdAndUpdate(id, updatedAddress, callback);
+    },
+    deleteAddress: function (id, callback) {
+        addressModel.findByIdAndDelete(id, callback);
     },
 };
 

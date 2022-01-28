@@ -13,7 +13,7 @@ router.use(express.urlencoded({
 
 router.use(function(req,res,next){
     //only check for token if it is PUT, DELETE methods or it is POSTING to events
-    if((req.method=="POST" && req.url.includes("/feedback") )) {
+    if((req.method=="POST" && req.url.includes("/feedback") ) ) {
         var token = req.query.token;
         if (token == undefined) {
             res.status(401).send("No tokens are provided. You are not allowed to perform this action.");
@@ -48,7 +48,7 @@ router.get('/feedback', function (req, res) {
     res.sendFile(__dirname + "/views/contact.html");
 });
 
-router.get('/userprofile', function (req, res) {
+router.get('/profile', function (req, res) {
     res.sendFile(__dirname + "/views/userprofile.html");
 });
 
@@ -65,6 +65,10 @@ router.get('/googlemap', function (req, res) {
 
 router.get('/mrtService', function (req, res) {
     res.sendFile(__dirname + "/views/mrtService.html");
+});
+
+router.get('/edit', function (req, res) {
+    res.sendFile(__dirname + "/views/edituserprofile.html");
 });
 
 router.get('/assets/*', function(req, res)  {
@@ -162,9 +166,9 @@ router.post('/userprofile', function (req, res) {
         })
 });
 
-router.post('/userprofile', function (req, res) {
-    var data = req.body;
-    db.getAddress(data.user, function (err, address) {
+router.get('/userprofile', function (req, res) {
+    
+    db.getAddress( function (err, address) {
         if (err) {
             res.status(500).send("Unable to find addresses");
         } else {
@@ -172,5 +176,48 @@ router.post('/userprofile', function (req, res) {
         }
     })
 })
+router.get('/userprofile/:id', function (req, res) {
+    var id = req.params.id;
+    db.getAddressbyId(id, function (err, address) {
+        if (err) {
+            res.status(500).send("Unable to find an address with this id");
+        } else {
+            res.status(200).send(address);
+        }
+    })
+})
+
+router.put('/userprofile', function (req, res) {
+    var data = req.body;
+    db.updateAddress(data.id, data.name, data.description, data.address, data.postal,
+        function (err, address) {
+            if (err) {
+                res.status(500).send("Unable to update the address");
+            } else {
+                if (address == null) {
+                    res.status(200).send("No address is updated");
+                } else {
+                    res.status(200).send("Address has been updated successfully");
+                }
+            }
+        });
+})
+
+
+router.delete('/userprofile/:id', function (req, res) {
+    var id = req.params.id;
+    db.deleteAddress(id, function (err, address) {
+        if (err) {
+            res.status(500).send("Unable to delete the address");
+        } else {
+            if (address == null) {
+                res.status(200).send("No address is deleted");
+            } else {
+                res.status(200).send("Address has been deleted successfully");
+            }
+        }
+    });
+})
+
 
 module.exports = router;

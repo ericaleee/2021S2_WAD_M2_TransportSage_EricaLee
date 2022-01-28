@@ -22,8 +22,4 @@ $(function() {
                 console.log(err.responseText);
             }
         )
-
-    // $(".addEvent").click(function () {
-    //     $(".addNewEvent").show();
-    // })
 })
