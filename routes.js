@@ -13,7 +13,7 @@ router.use(express.urlencoded({
 
 router.use(function(req,res,next){
     //only check for token if it is PUT, DELETE methods or it is POSTING to events
-    if((req.method=="POST" && req.url.includes("/feedback") ) ) {
+    if((req.method=="POST" && req.url.includes("/feedback") ) || (req.method=="POST" && req.url.includes("/userprofile") ) ) {
         var token = req.query.token;
         if (token == undefined) {
             res.status(401).send("No tokens are provided. You are not allowed to perform this action.");

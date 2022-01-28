@@ -8,12 +8,12 @@ $(function() {
                 data.forEach(function(address) {
                     $(".addresses").append(`
                         <article>
-                        <h3><a href="/edit?id=${address._id}">${address.name}</a></h3>
-                        <div>
+                        <h3><a href="/edit?id=${address._id}">${address.name}</a></h3><br>
+               
                             Description: ${address.description}<br>
                             Address: ${address.address}<br>
                             Postal Code: ${address.postal}<br>
-                        </div>
+            
                         </article>
                     `);
                 })
