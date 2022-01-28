@@ -1,7 +1,7 @@
 $(function() {
 
     // handles the clicking of the logout function
-    $(".logoutLink").click(function(e){
+    $(".logoutLink").on("click", function(e){
         //prevents the browser from navigating to "#", as defined by the <a href> tag
         e.preventDefault();
         
