@@ -1,0 +1,191 @@
+<html>
+<style>
+    a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightgrey;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: lightgrey;
+  background-color: transparent;
+  text-decoration: underline;
+}
+    p{
+        margin-left: 24em;
+    }
+    nav{
+        display: flex;
+    }
+    ul{
+        list-style-type: none;
+        display: flex;
+    }
+    li{
+        margin-left: 15px;
+        font-size: 20px;
+        font-family: MV Boli;
+    }
+    body {
+  background-image: url('assets/images/background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+    text-align: center;
+    font-family: colorado;
+    font-size: 62px;
+    color: rgba(0, 0, 0, 0.8);
+}
+.content{
+    display: flex;
+    margin-left: 4em;
+}
+
+footer {
+   text-align: center;
+   bottom:0;
+   background:rgba(151, 151, 151, 0.4);
+   padding: 3px;
+}
+
+#map {
+	  		height: 100%;
+		}
+
+#bringToCenter{
+        margin-left: 52em;
+}
+
+</style>
+
+<body>
+<nav>
+    <a href="/home"><img src="./assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
+    
+    <p><ul>
+    <li><a href="/userprofile">View Profile</a></li>
+    <!-- <li><a href="">Services</a></li> -->
+    <li><a href="/topup">Topup</a></li>
+    <li><a href="/feedback">Contact Us</a></li>
+    <li><a href="/mrtService">mrtService</a></li>
+    <li><a href="#" class="logoutLink">Logout</a></li>
+  </ul></p>
+</nav>
+<br>
+<h1>
+    Google Map
+</h1>
+<div>
+    <button id="bringToCenter">Bring to Center</button>
+  </div> <br>
+<div id="map"></div>
+<script>
+  let map, marker, infoWindow, infoWindowLatLang;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: {
+        lat: 	1.290270,
+        lng: 103.851959
+      },
+      zoom: 14,
+      mapTypeId: "roadmap",
+      scaleControl: true,
+      fullscreenControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_BOTTOM
+      }
+    });
+
+    marker = new google.maps.Marker({
+      position: {
+        lat: 1.3800,
+        lng: 103.8489
+      },
+      map: map,
+      title: "Singapore"
+    });
+
+    infoWindow = new google.maps.InfoWindow({
+      content: "<h2>Nanyang Polytechnic</h2>"
+    });
+
+    marker.addListener("click", function() {
+      infoWindow.open(map, marker);
+    });
+
+    map.addListener("click", function(mapsMouseEvent) {
+      if (infoWindowLatLang) infoWindowLatLang.close();
+
+      infoWindowLatLang = new google.maps.InfoWindow({
+        position: mapsMouseEvent.latLng
+      });
+      infoWindowLatLang.setContent(mapsMouseEvent.latLng.toString());
+      infoWindowLatLang.open(map);
+    });
+
+    const markerControlDiv = document.createElement("div");
+    const markerControl = new MarkerControl(markerControlDiv, map);
+
+    markerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(
+      markerControlDiv
+    );
+  }
+
+  const markerButton = document.querySelector("#bringToCenter");
+
+  markerButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    map.setCenter({
+      lat: 1.3800240182955519,
+      lng: 103.84886741638184
+    });
+  });
+
+  function MarkerControl(controlDiv, map) {
+    const controlUI = document.createElement("div");
+    controlUI.style.backgroundColor = "#fff";
+    controlUI.style.border = "2px solid #fff";
+    controlUI.style.borderRadius = "3px";
+    controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+    controlUI.style.cursor = "pointer";
+    controlUI.style.margin = "10px";
+    controlDiv.appendChild(controlUI);
+
+    const controlText = document.createElement("img");
+    controlText.style.padding = "5px";
+    controlText.title = "Click to add a Marker";
+    controlText.src =
+      "https://maps.google.com/mapfiles/ms/icons/red-pushpin.png";
+    controlUI.appendChild(controlText);
+
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener("click", function(e) {
+      new google.maps.Marker({
+        position: map.getCenter(),
+        map: map
+      });
+    });
+  }
+</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoK_RM2AryesOPLgnKGJEStHcYQXrB14M&callback=initMap" async defer></script>
+<br>
+<footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
+<script src='/js/jquery.min.js'></script>
+<script src="/js/auth.js"></script>
+
+</body>
+</html>
