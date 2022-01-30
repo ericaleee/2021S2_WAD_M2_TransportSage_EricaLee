@@ -62,6 +62,9 @@ router.get('/services', function (req, res) {
 router.get('/googlemap', function (req, res) {
     res.sendFile(__dirname + "/views/googlemap.html");
 });
+router.get('/taxistops', function (req, res) {
+    res.sendFile(__dirname + "/views/taxistops.html");
+});
 
 router.get('/mrtService', function (req, res) {
     res.sendFile(__dirname + "/views/mrtService.html");
