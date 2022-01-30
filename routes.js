@@ -225,5 +225,16 @@ router.delete('/userprofile/:id', function (req, res) {
     });
 })
 
+router.get('/stops', function (req, res) {
+    db.getAllTaxiStops(function(err,stops){
+        if (err) {
+            res.status(500).send("Unable to get all taxi stops");
+        } else {
+            res.status(200).send(stops);
+        }
+    })
+})
+
+
 
 module.exports = router;

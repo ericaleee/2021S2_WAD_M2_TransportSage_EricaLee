@@ -1,0 +1,102 @@
+[
+    {
+        "id" : "1",
+        "TaxiCode": "A01",
+        "Latitude": 1.3038888888888889,
+        "Longitude": 103.83361111111111,
+        "Bfa": "Yes",
+        "Ownership": "LTA",
+        "Type": "Stand",
+        "Name": "Orchard Rd along driveway of Lucky Plaza"
+    },
+    {
+        "id" : "2",
+        "TaxiCode": "A05",
+        "Latitude": 1.3041666666666667,
+        "Longitude": 103.83527777777778,
+        "Bfa": "Yes",
+        "Ownership": "Private",
+        "Type": "Stand",
+        "Name": "Mt Elizabeth Rd at Mt Elizabeth Hospital"
+    },
+    {
+        "id" : "3",
+        "TaxiCode": "A06",
+        "Latitude": 1.3030555555555556,
+        "Longitude": 103.83749999999999,
+        "Bfa": "Yes",
+        "Ownership": "LTA",
+        "Type": "Stop",
+        "Name": "Cairnhill Rd at Cairnhill Nine"
+    },
+    {
+        "id" : "4",
+        "TaxiCode": "A08",
+        "Latitude": 1.3033333333333335,
+        "Longitude": 103.8325,
+        "Bfa": "Yes",
+        "Ownership": "Private",
+        "Type": "Stand",
+        "Name": "Orchard Turn at Wisma Atria Shopping Centre"
+    },
+    {
+        "id" : "5",
+        "TaxiCode": "A12",
+        "Latitude": 1.3025,
+        "Longitude": 103.84055555555555,
+        "Bfa": "Yes",
+        "Ownership": "Private",
+        "Type": "Stop",
+        "Name": "Cuppage Rd at Starhub Centre"
+    },
+    {
+        "id" : "6",
+        "TaxiCode": "A13",
+        "Latitude": 1.3005555555555557,
+        "Longitude": 103.84222222222222,
+        "Bfa": "No",
+        "Ownership": "LTA",
+        "Type": "Stand",
+        "Name": "Kramat Lane outside Concorde Hotel & Shopping Mall"
+    },
+    {
+        "id" : "7",
+        "TaxiCode": "A14",
+        "Latitude": 1.3022222222222222,
+        "Longitude": 103.84083333333332,
+        "Bfa": "Yes",
+        "Ownership": "Private",
+        "Type": "Stop",
+        "Name": "Cavenagh Rd at Holiday Inn Singapore Orchard City Centre"
+    },
+    {
+        "id" : "8",
+        "TaxiCode": "A16",
+        "Latitude": 1.3,
+        "Longitude": 103.845,
+        "Bfa": "Yes",
+        "Ownership": "Private",
+        "Type": "Stand",
+        "Name": "Handy Rd at Plaza Singapura"
+    },
+    {
+        "id" : "9",
+        "TaxiCode": "A17",
+        "Latitude": 1.2988888888888888,
+        "Longitude": 103.84722222222221,
+        "Bfa": "Yes",
+        "Ownership": "CCS",
+        "Type": "Stand",
+        "Name": "Handy Rd near Cathay Building"
+    },
+    {
+        "id" : "10",
+        "TaxiCode": "A19",
+        "Latitude": 1.2966666666666666,
+        "Longitude": 103.84388888888888,
+        "Bfa": "Yes",
+        "Ownership": "CCS",
+        "Type": "Stand",
+        "Name": "Clemenceau Ave in front of Haw Par Glass Centre"
+    }
+]

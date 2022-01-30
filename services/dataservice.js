@@ -5,7 +5,8 @@ var feedbackSchema = {};
 var topupSchema = {};
 var serviceSchema ={};
 var addressSchema = {};
-var userModel, feedbackModel, topupModel, serviceModel, addressModel;
+var taxistopSchema ={};
+var userModel, feedbackModel, topupModel, serviceModel, addressModel, taxistopModel;
 
 var database = {
     connect: function () {
@@ -48,12 +49,23 @@ var database = {
                         ref: 'users'
                     }            
                 });
+                taxistopSchema = schema({
+                    id: String,
+                    TaxiCode: String,
+                    Latitude: Number,
+                    Longtitude: Number,
+                    Bfa: String,
+                    Ownership: String,
+                    Type: String,
+                    Name: String      
+                });
                 var connection = mongoose.connection;
                 userModel = connection.model('users', userSchema);
                 feedbackModel = connection.model('feedbacks', feedbackSchema);
                 topupModel = connection.model('topups', topupSchema);
                 serviceModel = connection.model('availservices', serviceSchema);
                 addressModel = connection.model('addresses', addressSchema);
+                taxistopModel = connection.model('taxistops', taxistopSchema);
             } else {
                 console.log("Error connecting to Mongo DB");
             }
@@ -132,6 +144,9 @@ var database = {
     },
     deleteAddress: function (id, callback) {
         addressModel.findByIdAndDelete(id, callback);
+    },
+    getAllTaxiStops: function(callback){
+        taxistopModel.find({},callback);
     },
 };
 

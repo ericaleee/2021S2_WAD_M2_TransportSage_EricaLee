@@ -37,7 +37,7 @@ form.addEventListener("submit", e => {
     if (filteredArray.length > 0) {
       msg.textContent = `You already know the weather for ${
         filteredArray[0].querySelector(".city-name span").textContent
-      } ...otherwise be more specific by providing the country code as well 😉`;
+      } ...otherwise be more specific by providing the country code as well`;
       form.reset();
       input.focus();
       return;
@@ -74,7 +74,7 @@ form.addEventListener("submit", e => {
       list.appendChild(li);
     })
     .catch(() => {
-      msg.textContent = "Please search for a valid city 😩";
+      msg.textContent = "Please search for a valid city";
     });
 
   msg.textContent = "";
