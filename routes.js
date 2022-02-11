@@ -173,7 +173,6 @@ router.post('/userprofile', function (req, res) {
 });
 
 router.get('/userprofile', function (req, res) {
-    
     db.getAddress( function (err, address) {
         if (err) {
             res.status(500).send("Unable to find addresses");

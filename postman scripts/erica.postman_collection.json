@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "eea46b5d-cbb6-4274-804c-a30be92f61f7",
+		"name": "eg3701project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "erica",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "erica",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "erica",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "92311908",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jeon19@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "erica",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. get user profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "f55f7e48c13a59622713cbe3b8e876b1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/userprofile?token=91f04f3ef25c278153339c786ad30c5e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"userprofile"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "91f04f3ef25c278153339c786ad30c5e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. add address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "erica",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "home",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "ang mo kio",
+							"type": "text"
+						},
+						{
+							"key": "postal",
+							"value": "Singapore 123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/userprofile?token=f55f7e48c13a59622713cbe3b8e876b1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"userprofile"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "f55f7e48c13a59622713cbe3b8e876b1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. update address by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "mom",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "mom's",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "bishan",
+							"type": "text"
+						},
+						{
+							"key": "postal",
+							"value": "Singapore 123321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/userprofile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userprofile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. delete address by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/userprofile/61f3e6f607fdb6bf49c3c140?token=91f04f3ef25c278153339c786ad30c5e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userprofile",
+						"61f3e6f607fdb6bf49c3c140"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "91f04f3ef25c278153339c786ad30c5e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. get avail services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/availservices",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"availservices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. get taxi stands from api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "AccountKey",
+						"value": "bEIxEJoTTQKVNKgFaY1PjQ==",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://datamall2.mytransport.sg/ltaodataservice/TaxiStands",
+					"protocol": "http",
+					"host": [
+						"datamall2",
+						"mytransport",
+						"sg"
+					],
+					"path": [
+						"ltaodataservice",
+						"TaxiStands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. get taxi stands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/stops",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"stops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. post an enquiry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "erica",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "923119008",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jeon19@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "feedback",
+							"type": "text"
+						},
+						{
+							"key": "feedback",
+							"value": "hello",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/feedback",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/logout?token=e5cc2258583d42fc522d6ddb66b8d4a4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logout"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "e5cc2258583d42fc522d6ddb66b8d4a4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
