@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <style>
+        a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: lightgrey;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: lightgrey;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        p {
+            margin-left: 24em;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            margin-left: 15px;
+            font-size: 20px;
+            font-family: MV Boli;
+        }
+
+        body {
+            background-image: url('../assets/images/background2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: colorado;
+            font-size: 62px;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .content {
+            display: flex;
+            margin-left: 4em;
+        }
+
+        footer {
+            text-align: center;
+            bottom: 0;
+            background: rgba(151, 151, 151, 0.4);
+            padding: 3px;
+        }
+
+        .search {
+            position: absolute;
+            top: 40%;
+            left: 45%;
+        }
+
+        .container {
+            position: absolute;
+            top: 60%;
+        }
+    </style>
+    <title>News</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/home"><img src="../assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
+
+        <p>
+        <ul>
+            <li><a href="/profile">View Profile</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/feedback">Contact Us</a></li>
+            <li><a href="#" class="logoutLink">Logout</a></li>
+        </ul>
+        </p>
+    </nav>
+    <br>
+    <h1>
+        News
+    </h1>
+    <form class="search" action="">
+        <label for="">News</label>
+        <input class="input" type="test" /></br>
+        <input type="submit" />
+    </form>
+
+    <div class="container">
+        <ul class="news-list"></ul>
+    </div>
+
+    <script src='/js/jquery.min.js'></script>
+    <!-- <script src="/js/news.js"></script> -->
+    <script>
+
+        const searchFrom = document.querySelector('.search');
+        const input = document.querySelector('.input');
+        const newsList = document.querySelector('.news-list');
+
+        console.log(newsList);
+
+        searchFrom.addEventListener('submit', retrieve);
+
+        function retrieve(e) {
+
+            if (input.value == '') {
+                alert('Input field is empty!')
+                return
+            }
+
+            newsList.innerHTML = '';
+
+            e.preventDefault();
+
+            const apiKey = '230cd097e455482a854d5e401267cba3';
+            const topic = input.value;
+            var a = topic;
+
+            console.log(a);
+
+            const url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${apiKey}`;
+
+
+            fetch(url).then((res) => {
+                return res.json()
+            }).then((data) => {
+                console.log(data)
+                data.articles.forEach(article => {
+                    let li = document.createElement('li');
+                    let a = document.createElement('a');
+                    a.setAttribute('href', article.url);
+                    a.setAttribute('target', '_blank');
+                    a.textContent = article.title;
+                    li.appendChild(a);
+                    newsList.appendChild(li);
+                })
+
+            }).catch((error) => {
+                console.log(error);
+            })
+
+            console.log(topic);
+        }
+    </script>
+</body>
+
+</html>

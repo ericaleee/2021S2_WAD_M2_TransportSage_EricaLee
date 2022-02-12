@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "61f3c84f0cd86166cf653dbb"
+  },
+  "name": "erica",
+  "description": "home",
+  "address": "ang mo kio",
+  "postal": " Singapore 123123",
+  "user": {
+    "$oid": "61e91d692f69b69645528435"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61f3e6f607fdb6bf49c3c140"
+  },
+  "name": "mom",
+  "description": "mom's",
+  "address": "bishan",
+  "postal": "Singapore 123321",
+  "user": {
+    "$oid": "61e91d692f69b69645528435"
+  },
+  "__v": 0
+}]

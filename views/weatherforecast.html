@@ -1,0 +1,286 @@
+s<style>
+  :root {
+
+    --text_light: rgb(47, 58, 59);
+    --text_med: #53627c;
+    --text_dark: #7ce5f3;
+    --red: #e69aa7;
+    --darkred: #e04f64;
+    --orange: #ff8c00;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+  }
+
+  a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: lightgrey;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: lightgrey;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  p {
+    margin-left: 24em;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
+
+  li {
+    margin-left: 15px;
+    font-size: 20px;
+    font-family: MV Boli;
+  }
+
+  body {
+    background-image: url('assets/images/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: colorado;
+    font-size: 62px;
+    color: rgb(0, 0, 0);
+  }
+
+  footer {
+    text-align: center;
+    bottom: 0;
+    background: rgba(151, 151, 151, 0.4);
+    padding: 3px;
+  }
+
+  #weather {
+    margin-left: 20em;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input {
+    -webkit-appearance: none;
+  }
+
+  button,
+  input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+
+  .container {
+    margin-left: 53em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+
+  /* SECTION #1
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .top-banner {
+    color: var(--text_light);
+  }
+
+
+  .top-banner form {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .top-banner form input {
+    font-size: 2rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;
+  }
+
+  .top-banner form input::placeholder {
+    color: currentColor;
+  }
+
+  .top-banner form button {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 15px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background: var(--red);
+    transition: background 0.3s ease-in-out;
+  }
+
+  .top-banner form button:hover {
+    background: var(--darkred);
+  }
+
+  .top-banner form .msg {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    max-width: 450px;
+    min-height: 40px;
+  }
+
+
+  /* SECTION #2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .ajax-section {
+    margin: 70px 0 20px;
+  }
+
+  .ajax-section .cities {
+    display: grid;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ajax-section .city {
+    position: relative;
+    padding: 40px 10%;
+    border-radius: 20px;
+    background: var(--text_light);
+    color: var(--text_med);
+  }
+
+  .ajax-section .city::after {
+    content: '';
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: -12px;
+    left: 5%;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 20px;
+    background: var(--text_light);
+  }
+
+  .ajax-section figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ajax-section .city-temp {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--text_dark);
+  }
+
+  .ajax-section .city sup {
+    font-size: 0.5em;
+  }
+
+  .ajax-section .city-name sup {
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    color: var(--text_light);
+    background: var(--orange);
+  }
+
+  .ajax-section .city-icon {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+  }
+
+
+  /* API Key banner
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .api {
+    background: #75c4db;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .api a {
+    text-decoration: underline;
+  }
+
+  .api a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<body>
+  <nav>
+    <a href="/home"><img src="./assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
+
+    <p>
+    <ul>
+      <li><a href="/profile">View Profile</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/feedback">Contact Us</a></li>
+      <li><a href="#" class="logoutLink">Logout</a></li>
+    </ul>
+    </p>
+  </nav>
+  <section class="top-banner">
+    <div class="container">
+      <h1 class="heading">Weather Forecast</h1><br>
+      <form id="weather">
+        <input type="text" placeholder="Search for a city" autofocus>
+        <button type="submit">SUBMIT</button>
+        <span class="msg"></span>
+      </form>
+    </div>
+  </section>
+  <section class="ajax-section">
+    <div class="container">
+      <ul class="cities"></ul>
+    </div>
+  </section>
+  <script src='/js/jquery.min.js'></script>
+  <script src='/js/weatherforecast.js'></script>
+
+  <footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
+</body>

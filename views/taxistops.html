@@ -1,0 +1,122 @@
+<html>
+<style>
+    a:link {
+        color: green;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: lightgrey;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: lightgrey;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    p {
+        margin-left: 24em;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+    li {
+        margin-left: 15px;
+        font-size: 20px;
+        font-family: MV Boli;
+    }
+
+    body {
+        background-image: url('assets/images/background2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: colorado;
+        font-size: 62px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .content {
+        display: flex;
+        margin-left: 4em;
+    }
+
+    footer {
+        text-align: center;
+        bottom: 0;
+        background: rgba(151, 151, 151, 0.4);
+        padding: 3px;
+    }
+
+    .taxistops article {
+        background: rgba(151, 151, 151, 0.4);
+        ;
+        border-radius: 25px;
+        padding: 2em;
+        width: 40em;
+        margin-left: 26em;
+        margin-bottom: 5em;
+        text-align: center;
+    }
+
+    .flex {
+        flex: 1;
+    }
+
+    .flexbig {
+        display: flex;
+    }
+
+    h2 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+
+<body>
+    <nav>
+        <a href="/home"><img src="./assets/images/logo.png" height="200" width="200" title="logo" alt="logo"></a>
+
+        <p>
+        <ul>
+            <li><a href="/profile">View Profile</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/feedback">Contact Us</a></li>
+            <li><a href="#" class="logoutLink">Logout</a></li>
+        </ul>
+        </p>
+    </nav>
+    <br>
+    <h1>
+        Available Taxi Stops (10)
+    </h1>
+    <section class="taxistops">
+
+    </section>
+
+    <footer>&copy; CopyRight 2022 TransportSage. All Rights Reserved.</footer>
+    <script src='/js/jquery.min.js'></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/taxistops.js"></script>
+</body>
+
+</html>
